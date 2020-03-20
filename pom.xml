@@ -17,6 +17,7 @@
 
         <spark.version>2.4.3</spark.version>
         <elasticsearch.version>7.1.0</elasticsearch.version>
+
     </properties>
 
     <build>
