@@ -1,6 +1,6 @@
 package com.demo.spark.job;
 
-public class TestMain {
+public class CsvMain {
 
     public static void main(String[] args) {
 
