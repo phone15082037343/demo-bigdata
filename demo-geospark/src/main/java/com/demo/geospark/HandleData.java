@@ -54,6 +54,7 @@ public class HandleData {
         dataset.printSchema();
         dataset.show();
 
+
         spark.stop();
     }
 
