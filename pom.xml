@@ -11,6 +11,7 @@
 
     <modules>
         <module>demo-spark</module>
+        <module>demo-geospark</module>
     </modules>
 
     <properties>
@@ -20,7 +21,9 @@
         <scala.version>2.11</scala.version>
 
         <spark.version>2.4.3</spark.version>
-        <elasticsearch.version>7.1.0</elasticsearch.version>
+        <!--<elasticsearch.version>7.1.0</elasticsearch.version>-->
+        <elasticsearch.version>6.2.4</elasticsearch.version>
+        <fastjson.version>1.2.62</fastjson.version>
     </properties>
 
     <build>
@@ -73,6 +76,11 @@
                 <groupId>org.elasticsearch</groupId>
                 <artifactId>elasticsearch-hadoop</artifactId>
                 <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
