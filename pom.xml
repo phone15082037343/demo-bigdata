@@ -27,6 +27,7 @@
         <fastjson.version>1.2.62</fastjson.version>
         <postgresql.version>42.2.10</postgresql.version>
         <mysql.version>5.1.48</mysql.version>
+        <lombok.version>1.18.0</lombok.version>
     </properties>
 
     <build>
@@ -89,13 +90,20 @@
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+                <scope>provided</scope>
             </dependency>
-
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
