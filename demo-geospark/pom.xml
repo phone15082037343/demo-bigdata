@@ -21,12 +21,18 @@
             <artifactId>spark-sql_${scala.version}</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.elasticsearch</groupId>
-            <artifactId>elasticsearch-hadoop</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

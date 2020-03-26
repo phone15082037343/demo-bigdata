@@ -12,6 +12,7 @@
     <modules>
         <module>demo-spark</module>
         <module>demo-geospark</module>
+        <module>demo-chess</module>
     </modules>
 
     <properties>
@@ -24,6 +25,8 @@
         <!--<elasticsearch.version>7.1.0</elasticsearch.version>-->
         <elasticsearch.version>6.2.4</elasticsearch.version>
         <fastjson.version>1.2.62</fastjson.version>
+        <postgresql.version>42.2.10</postgresql.version>
+        <mysql.version>5.1.48</mysql.version>
     </properties>
 
     <build>
@@ -82,6 +85,17 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
