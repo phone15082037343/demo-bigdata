@@ -29,6 +29,7 @@
             <artifactId>fastjson</artifactId>
         </dependency>
 
+
         <dependency>
             <groupId>org.datasyslab</groupId>
             <artifactId>geospark</artifactId>
