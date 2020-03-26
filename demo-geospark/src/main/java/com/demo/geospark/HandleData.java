@@ -1,6 +1,5 @@
 package com.demo.geospark;
 
-import com.mysql.jdbc.Driver;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
