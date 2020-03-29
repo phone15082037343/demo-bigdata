@@ -1,4 +1,4 @@
-package com;
+package com.demo.chess;
 
 import java.util.Arrays;
 
