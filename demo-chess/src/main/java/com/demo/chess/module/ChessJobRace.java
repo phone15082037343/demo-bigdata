@@ -2,6 +2,7 @@ package com.demo.chess.module;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.Map;
 
 @Data
 @Builder
-@Deprecated
+@ToString
 public class ChessJobRace implements Serializable {
 
     /** 棋子ID */
@@ -18,12 +19,10 @@ public class ChessJobRace implements Serializable {
     private String displayName;
     /** 黑暗之女 */
     private String title;
-    /** 羁绊ID，种族+职业，以","隔开 */
-    private String jobRaceIds;
+    /** 羁绊ID */
+    private Integer jobRaceId;
     /** 价格 */
     private Integer price;
-    /** ID */
-    private Integer jobRaceId;
     /** 名字 */
     private String name;
     /** 羁绊树 */
