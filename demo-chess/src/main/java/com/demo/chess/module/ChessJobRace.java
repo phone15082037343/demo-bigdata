@@ -25,7 +25,7 @@ public class ChessJobRace implements Serializable {
     private Integer price;
     /** 名字 */
     private String name;
-    /** 羁绊树 */
+    /** 羁绊数 */
     private List<Integer> level;
 
 }

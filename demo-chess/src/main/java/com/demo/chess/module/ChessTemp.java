@@ -5,20 +5,22 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 /**
- * 种族职业
+ * 组合之后的结果
  */
 @Data
 @Builder
-public class JobRace implements Serializable {
+@Deprecated
+public class ChessTemp implements Serializable {
 
-    /** ID */
+    private String uuid;
+    private Integer chessId;
+    private String displayName;
     private Integer jobRaceId;
-    /** 名字 */
+    private Integer price;
+    private String title;
     private String name;
-    /** key:人口数，value:羁绊描述 */
     private List<Integer> level;
 
 }
