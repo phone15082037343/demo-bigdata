@@ -54,7 +54,6 @@ public class TestMain {
         System.out.println("name: "+ name);
         System.out.println("grade: " + grade);
 
-
         String chesspath = "file:///C:\\Users\\15082\\Desktop\\New folder\\chess";
         String jobpath = "file:///C:\\Users\\15082\\Desktop\\New folder\\job";
         String racepath = "file:///C:\\Users\\15082\\Desktop\\New folder\\race";
