@@ -12,9 +12,12 @@ import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.api.java.UDF1;
 import org.apache.spark.sql.api.java.UDF2;
 import org.apache.spark.sql.types.DataTypes;
+import org.apache.spark.sql.types.IntegerType;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
+import org.postgresql.Driver;
 import scala.Tuple2;
+import scala.collection.JavaConversions;
 import scala.collection.mutable.WrappedArray;
 
 import java.util.*;
@@ -74,11 +77,11 @@ public class TestMain {
         genarateChess(spark);
 
         // 创建临时表，满足条件的
-        spark.sql("select * from chess_job_race where name = '" + name + "' and array_len(level) = " + grade)
+        spark.sql("select * from chess_job_race where name = '" + name + "' and array_len(level) >= " + grade)
                 .createOrReplaceTempView("chess_job_race_temp");
 
         // 需要人口数
-        JavaRDD<Integer> numRDD = spark.sql("select my_level(level, " + grade + ") as num from chess_job_race where name = '" + name + "' and array_len(level) = " + grade).toJavaRDD()
+        JavaRDD<Integer> numRDD = spark.sql("select my_level(level, " + grade + ") as num from chess_job_race where name = '" + name + "' and array_len(level) >= " + grade).toJavaRDD()
                 .map(row -> row.getInt(0))
                 .filter(Objects::nonNull);
         long count = numRDD.count();
@@ -96,10 +99,26 @@ public class TestMain {
         // 计算最终结果, left join 并且压缩
 //        joinChess(spark);
 
-        Dataset<Row> dataset = spark.sql("select * from chess_combine");
+        Dataset<Row> dataset = spark.sql("select chesses" +
+                ", map_to_string(success) as success" +
+                ", map_len(success) as success_num" +
+                ", price" +
+                ", map_to_string(failed) as failed" +
+                ", map_len(failed) as failed_num" +
+                " from chess_combine order by success_num desc");
         System.out.println(Arrays.toString(dataset.columns()));
         dataset.printSchema();
         dataset.show(100);
+//        dataset.coalesce(1).write().json("file:///C:\\Users\\15082\\Desktop\\New folder\\result007");
+
+        Properties prop = new Properties();
+        prop.put("user", "postgres");
+        prop.put("password", "123456");
+        prop.put("driver", "org.postgresql.Driver");
+        prop.put("batchsize", "10000"); // write
+        dataset.write().
+                jdbc("jdbc:postgresql://127.0.0.1:5432/spark", "chess_zhongzhuang", prop);
+
         spark.stop();
     }
 
@@ -486,6 +505,34 @@ public class TestMain {
             }
             return null;
         }, DataTypes.IntegerType);
+
+        spark.udf().register("map_len", (UDF1<scala.collection.Map, Integer>) map -> {
+            if (map != null) {
+                return map.size();
+            }
+            return null;
+        }, DataTypes.IntegerType);
+
+        spark.udf().register("array_to_string", (UDF1<WrappedArray<Integer>, String>) array -> {
+            if (array != null) {
+                List<Integer> list = new ArrayList<>(JavaConversions.asJavaCollection(array));
+                return list.stream()
+                        .map(i -> i == null ? null : i.toString())
+                        .collect(Collectors.joining(","));
+            }
+            return null;
+        }, DataTypes.StringType);
+
+        spark.udf().register("map_to_string", (UDF1<scala.collection.Map<String, Integer>, String>) scalaMap -> {
+            if (scalaMap != null) {
+                Map<String, Integer> map = scala.collection.JavaConversions.mapAsJavaMap(scalaMap);
+                List<String> list = new ArrayList<>();
+                map.forEach((key, value) -> list.add(key + ":" + value));
+                return String.join(";", list);
+            }
+            return null;
+        }, DataTypes.StringType);
+
     }
 
 }
