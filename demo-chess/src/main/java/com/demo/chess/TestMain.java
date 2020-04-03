@@ -12,10 +12,8 @@ import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.api.java.UDF1;
 import org.apache.spark.sql.api.java.UDF2;
 import org.apache.spark.sql.types.DataTypes;
-import org.apache.spark.sql.types.IntegerType;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
-import org.postgresql.Driver;
 import scala.Tuple2;
 import scala.collection.JavaConversions;
 import scala.collection.mutable.WrappedArray;
@@ -334,34 +332,6 @@ public class TestMain {
         spark.createDataFrame(javaRDD, schema).createOrReplaceTempView("job_race");
 
     }
-
-//    /**
-//     * 组合
-//     */
-//    private static void combine(ChessJobRace[] input, ChessJobRace[] output, int index, int start, List<List<ChessJobRace>> result) {
-//        if (index == output.length) {//产生一个组合序列
-//            result.add(new ArrayList<>(Arrays.asList(output)));
-//        } else {
-//            for (int j = start; j < input.length; j++) {
-//                output[index] = input[j];//记录选取的元素
-//                combine(input, output, index + 1, j + 1, result);// 选取下一个元素，可选下标区间为[j+1, input.length]
-//            }
-//        }
-//    }
-
-//    /**
-//     * 组合
-//     */
-//    private static void combine(Chess[] input, Chess[] output, int index, int start, List<List<Chess>> result) {
-//        if (index == output.length) {//产生一个组合序列
-//            result.add(new ArrayList<>(Arrays.asList(output)));
-//        } else {
-//            for (int j = start; j < input.length; j++) {
-//                output[index] = input[j];//记录选取的元素
-//                combine(input, output, index + 1, j + 1, result);// 选取下一个元素，可选下标区间为[j+1, input.length]
-//            }
-//        }
-//    }
 
     /**
      * 组合
