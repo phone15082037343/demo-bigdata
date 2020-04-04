@@ -19,7 +19,7 @@ import java.util.*;
 /**
  * 组合
  */
-public class CombineChess {
+public class CombineChessJob {
 
     public static void main(String[] args) throws Exception {
         ChessArgs chessArgs = ChessArgs.load(args);
