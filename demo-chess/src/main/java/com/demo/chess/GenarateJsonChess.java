@@ -25,8 +25,8 @@ public class GenarateJsonChess {
         System.out.println(chessArgs);
 
         SparkSession spark = SparkSession.builder()
-                .master("local[*]")
-                .appName("demo")
+//                .master("local[*]")
+//                .appName("demo")
                 .getOrCreate();
 
         // 载入种族和职业
