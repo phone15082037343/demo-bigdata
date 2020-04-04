@@ -1,8 +1,6 @@
 package com.demo.chess.module;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,6 +9,8 @@ import java.util.Map;
 @Data
 @Builder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class ChessJobRace implements Serializable {
 
     /** 棋子ID */

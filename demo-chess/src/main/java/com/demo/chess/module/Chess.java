@@ -1,7 +1,6 @@
 package com.demo.chess.module;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,6 +10,9 @@ import java.util.List;
  */
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Chess implements Serializable {
 
     /** 棋子ID */
