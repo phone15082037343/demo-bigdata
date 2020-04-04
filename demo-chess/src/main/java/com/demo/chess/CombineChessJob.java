@@ -25,12 +25,12 @@ public class CombineChessJob {
         ChessArgs chessArgs = ChessArgs.load(args);
         System.out.println(chessArgs);
         SparkSession spark = SparkSession.builder()
-                .master("local[*]")
-                .appName("demo")
+//                .master("local[*]")
+//                .appName("demo")
                 .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
                 .getOrCreate();
 
-        // 注册杉树
+        // 注册函数
         register(spark);
 
         // 载入数据
@@ -45,9 +45,9 @@ public class CombineChessJob {
 //        dataset.show();
 
         Properties prop = new Properties();
-        prop.put("user", "postgres");
-        prop.put("password", "123456");
-        prop.put("driver", "org.postgresql.Driver");
+        prop.put("user", chessArgs.getUsername());
+        prop.put("password", chessArgs.getPassword());
+        prop.put("driver", chessArgs.getDriverClassName());
         prop.put("batchsize", "10000"); // write
 
         spark.sql("select * from chess_combine")
@@ -71,7 +71,7 @@ public class CombineChessJob {
                     return chessCombineOutput;
                 }, Encoders.bean(ChessCombineOutput.class))
                 .write().
-                jdbc("jdbc:postgresql://127.0.0.1:5432/spark", "chess_cike4", prop);
+                jdbc(chessArgs.getUrl(), chessArgs.getTableName(), prop);
 
         spark.stop();
     }

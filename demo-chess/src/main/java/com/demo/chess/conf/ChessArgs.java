@@ -33,6 +33,17 @@ public class ChessArgs implements Serializable {
     private String grade;
     /** 总人数 */
     private String total = "8";
+    /** url */
+    private String url;
+    /** 驱动类型 */
+    private String driverClassName;
+    /** 用户名 */
+    private String username;
+    /** 密码 */
+    private String password;
+    /** 表名 */
+    private String tableName;
+
 
     public static ChessArgs load(String[] args) throws Exception {
         Map<String, String> map = new HashMap<>();
