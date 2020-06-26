@@ -11,8 +11,8 @@ public class ElasticsearchJob {
 
     public static void main(String[] args) {
         SparkSession spark = SparkSession.builder()
-                .master("local[*]")
-                .appName("demo")
+//                .master("local[*]")
+//                .appName("demo")
                 .config("es.index.auto.create", "true")
                 .config("es.nodes", "server:9200")
                 .getOrCreate();
