@@ -22,8 +22,8 @@
         <scala.version>2.11</scala.version>
 
         <spark.version>2.4.3</spark.version>
-        <!--<elasticsearch.version>7.1.0</elasticsearch.version>-->
-        <elasticsearch.version>6.2.4</elasticsearch.version>
+        <elasticsearch.version>7.1.0</elasticsearch.version>
+        <!--<elasticsearch.version>6.2.4</elasticsearch.version>-->
         <fastjson.version>1.2.62</fastjson.version>
         <postgresql.version>42.2.10</postgresql.version>
         <mysql.version>5.1.48</mysql.version>
