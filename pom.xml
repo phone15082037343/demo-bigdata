@@ -11,8 +11,8 @@
 
     <modules>
         <module>demo-spark</module>
-        <module>demo-geospark</module>
-        <module>demo-chess</module>
+        <!--<module>demo-geospark</module>
+        <module>demo-chess</module>-->
     </modules>
 
     <properties>
