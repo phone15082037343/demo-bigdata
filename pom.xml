@@ -29,6 +29,7 @@
         <mysql.version>5.1.48</mysql.version>
         <lombok.version>1.18.0</lombok.version>
         <hbase.version>2.2.0</hbase.version>
+        <commons-httpclient.version>3.1</commons-httpclient.version>
     </properties>
 
     <build>
@@ -114,6 +115,11 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>commons-httpclient</groupId>
+                <artifactId>commons-httpclient</artifactId>
+                <version>${commons-httpclient.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
