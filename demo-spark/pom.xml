@@ -51,6 +51,10 @@
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_${scala.version}</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
             <artifactId>spark-avro_${scala.version}</artifactId>
         </dependency>
         <dependency>
@@ -73,6 +77,15 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka-0-10_${scala.version}</artifactId>
+        </dependency>
+
     </dependencies>
 
 

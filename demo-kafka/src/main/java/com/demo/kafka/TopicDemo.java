@@ -16,7 +16,7 @@ public class TopicDemo {
         prop.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "server:9092");
         AdminClient client = AdminClient.create(prop);
 
-        createTopic(client);
+//        createTopic(client);
 //        dropTopic(client);
         listTopicNames(client);
     }
