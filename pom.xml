@@ -11,6 +11,7 @@
 
     <modules>
         <module>demo-spark</module>
+        <module>demo-kafka</module>
         <!--<module>demo-geospark</module>
         <module>demo-chess</module>-->
     </modules>
@@ -30,6 +31,7 @@
         <lombok.version>1.18.0</lombok.version>
         <hbase.version>2.2.0</hbase.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
+        <kafka.version>2.5.0</kafka.version>
     </properties>
 
     <build>
@@ -120,6 +122,11 @@
                 <groupId>commons-httpclient</groupId>
                 <artifactId>commons-httpclient</artifactId>
                 <version>${commons-httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>${kafka.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
