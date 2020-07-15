@@ -4,8 +4,6 @@ import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.admin.*;
 import org.apache.kafka.common.KafkaFuture;
 
-import javax.swing.text.TabableView;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Properties;
 import java.util.Set;
