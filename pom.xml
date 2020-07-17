@@ -12,6 +12,7 @@
     <modules>
         <module>demo-spark</module>
         <module>demo-kafka</module>
+        <module>demo-hdfs</module>
         <!--<module>demo-geospark</module>
         <module>demo-chess</module>-->
     </modules>
@@ -32,6 +33,7 @@
         <hbase.version>2.2.0</hbase.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <kafka.version>2.5.0</kafka.version>
+        <hadoop.version>3.2.1</hadoop.version>
     </properties>
 
     <build>
@@ -104,6 +106,11 @@
                 <groupId>org.apache.hbase</groupId>
                 <artifactId>hbase-mapreduce</artifactId>
                 <version>${hbase.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+                <version>${hadoop.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
